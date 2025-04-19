@@ -1,50 +1,46 @@
 import java.util.Scanner;
 
-// Kelas Utama (LoginSystem)
 public class LoginSystem {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        Admin admin = new Admin();
-        Mahasiswa mahasiswa = new Mahasiswa();
+        Scanner input = new Scanner(System.in);
+        Admin admin = new Admin("Moch Rafly Ilhamsyah", "151", "admin", "1234");
+        Mahasiswa mahasiswa = new Mahasiswa("Rafly", "151");
 
-        System.out.println("Pilih Jenis Login:");
-        System.out.println("1. Admin");
-        System.out.println("2. Mahasiswa");
-        System.out.print("Masukkan pilihan: ");
-        int pilihan = sc.nextInt();
-        sc.nextLine(); // membersihkan newline
+        System.out.println("=== Sistem Login ===");
+        System.out.println("1. Login sebagai Admin");
+        System.out.println("2. Login sebagai Mahasiswa");
+        System.out.print("Pilih opsi (1/2): ");
+        int pilihan = input.nextInt();
+        input.nextLine(); // Buang newline
 
         if (pilihan == 1) {
-            // Login sebagai Admin
             System.out.print("Masukkan Username: ");
-            String username = sc.nextLine();
+            String username = input.nextLine();
             System.out.print("Masukkan Password: ");
-            String password = sc.nextLine();
+            String password = input.nextLine();
 
             if (admin.login(username, password)) {
-                System.out.println("Login Admin berhasil!");
+                admin.displayInfo();
             } else {
-                System.out.println("Login gagal! Username atau password salah.");
+                System.out.println("Login Admin gagal!");
             }
 
         } else if (pilihan == 2) {
-            // Login sebagai Mahasiswa
             System.out.print("Masukkan Nama: ");
-            String nama = sc.nextLine();
+            String nama = input.nextLine();
             System.out.print("Masukkan NIM: ");
-            String nim = sc.nextLine();
+            String nim = input.nextLine();
 
             if (mahasiswa.login(nama, nim)) {
-                System.out.println("Login Mahasiswa berhasil!");
                 mahasiswa.displayInfo();
             } else {
-                System.out.println("Login gagal! Nama atau NIM salah.");
+                System.out.println("Login Mahasiswa gagal!");
             }
 
         } else {
-            System.out.println("Pilihan tidak valid.");
+            System.out.println("Pilihan tidak tersedia.");
         }
 
-        sc.close();
+        input.close();
     }
 }
