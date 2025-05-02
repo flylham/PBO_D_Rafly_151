@@ -14,7 +14,7 @@ public class Main {
         System.out.println("\n === DAFTAR ANGGOTA ===");
 
         Peminjaman anggota1 = new Anggota("Moch Rafly Ilhamsyah", "B0151");
-        Peminjaman anggota2 = new Anggota("Aghnaf Farhan Bima Arya", "B0167");
+        Peminjaman anggota2 = new Anggota("Aghnaf Farhan Bima Arya", "B0162");
 
         anggota1.tampilkanInfo();
         anggota2.tampilkanInfo();
