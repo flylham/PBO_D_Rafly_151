@@ -28,10 +28,7 @@ public abstract class User {
     public abstract boolean login(String input1, String input2);
 
     public void displayInfo(){
-        System.out.println("Nama : " + nama);
-        System.out.println("Nim  : " + nim);
     }
 
     public abstract void dispLayAppMenu();
-
 }
